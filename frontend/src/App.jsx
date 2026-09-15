@@ -308,6 +308,8 @@ export default function App() {
       <footer className="border-t border-slate-800 bg-slate-900/60 py-6 px-4 sm:px-6 mt-12 text-xs text-slate-400">
         <div className="max-w-6xl mx-auto flex flex-col sm:flex-row items-center justify-between gap-3">
           <div className="flex items-center gap-2">
+            <span className="font-bold text-white">Voltaic<span className="text-emerald-400">AI</span></span>
+            <span>•</span>
             <span className="font-medium text-slate-300">Energy Demand Predictor</span>
             <span>•</span>
             <span>Supporting SDG 7 (Affordable & Clean Energy)</span>

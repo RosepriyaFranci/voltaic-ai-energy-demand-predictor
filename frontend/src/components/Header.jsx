@@ -22,10 +22,11 @@ export default function Header({
           </div>
           <div>
             <div className="flex items-center gap-2">
-              <h1 className="text-base sm:text-lg font-semibold text-white tracking-tight">
-                Energy Demand Predictor
+              <h1 className="text-base sm:text-lg font-bold text-white tracking-tight flex items-center gap-1.5">
+                <span>Voltaic<span className="text-emerald-400">AI</span></span>
+                <span className="text-slate-400 font-normal">| Energy Demand Predictor</span>
               </h1>
-              <span className="text-[11px] font-medium px-2 py-0.5 rounded bg-emerald-950 text-emerald-300 border border-emerald-800">
+              <span className="text-[11px] font-medium px-2 py-0.5 rounded bg-emerald-950 text-emerald-300 border border-emerald-800 hidden sm:inline-block">
                 SDG 7 Clean Energy
               </span>
             </div>
