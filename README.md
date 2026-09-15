@@ -90,31 +90,44 @@ The dashboard provides a centralized view of:
 
 ## 🏗️ System Architecture
 
-VoltaicAI follows a simple frontend–backend architecture. Historical energy data is processed by the Python backend, while the React frontend is used to visualize results and interact with the system.
+VoltaicAI follows a frontend–backend architecture where the React frontend communicates with the Python backend through a REST API.
 
 ```mermaid
 flowchart TD
 
-    A[Historical Energy Data] --> B
+    A[Historical Energy Data]
 
-    subgraph Backend[Python Backend]
-        B[Data Processing]
-        B --> C[Demand Forecasting]
-        C --> D[Peak Analysis]
-        D --> E[Scenario Simulation]
-        E --> F[Recommendations]
+    subgraph B[Python Backend]
+        B1[Data Processing]
+        B2[Demand Forecasting]
+        B3[Peak Analysis]
+        B4[Scenario Simulation]
+        B5[Recommendations]
+
+        B1 --> B2
+        B2 --> B3
+        B3 --> B4
+        B4 --> B5
     end
 
-    F --> G[REST API / JSON]
+    C[REST API / JSON]
 
-    subgraph Frontend[React Frontend]
-        G --> H[Dashboard]
-        G --> I[Forecast Charts]
-        G --> J[What-If Simulator]
-        G --> K[Recommendations]
+    subgraph D[React Frontend]
+        D1[Dashboard]
+        D2[Forecast Charts]
+        D3[What-If Simulator]
+        D4[Recommendations]
     end
 
-    H --> L[User]
-    I --> L
-    J --> L
-    K --> L
+    E[User]
+
+    A --> B1
+    B5 --> C
+    C --> D1
+    C --> D2
+    C --> D3
+    C --> D4
+    D1 --> E
+    D2 --> E
+    D3 --> E
+    D4 --> E
