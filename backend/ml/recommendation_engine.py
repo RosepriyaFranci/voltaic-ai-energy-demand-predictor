@@ -75,7 +75,8 @@ class RecommendationEngine:
             equip_type = "municipal wastewater aeration and municipal pumping stations"
             
         shift_kwh = round(excess_peak_kw * 0.35 * duration, 1)
-        shift_usd = round(shift_kwh * 0.17, 2)
+        # Shifted kWh rate differential ($0.32 - $0.095 = $0.225) + peak capacity demand charge reduction
+        shift_usd = round(shift_kwh * 0.225 + (excess_peak_kw * 0.35) * 5.5, 2)
         shift_co2 = round(shift_kwh * 0.44, 1)
         
         recs.append({

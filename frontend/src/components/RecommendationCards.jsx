@@ -71,11 +71,17 @@ export default function RecommendationCards({
             >
               <div>
                 <div className="flex items-center justify-between text-xs mb-2">
-                  <span className="text-[11px] font-medium px-2 py-0.5 rounded bg-emerald-950 text-emerald-300 border border-emerald-800">
-                    High Savings
+                  <span className={`text-[10px] font-semibold px-2 py-0.5 rounded border ${
+                    rec.cost_saved_usd >= 100 
+                      ? 'bg-emerald-950 text-emerald-300 border-emerald-700' 
+                      : rec.cost_saved_usd >= 40 
+                      ? 'bg-teal-950 text-teal-300 border-teal-700' 
+                      : 'bg-slate-800 text-slate-300 border-slate-700'
+                  }`}>
+                    {rec.cost_saved_usd >= 100 ? 'Top Saver' : rec.cost_saved_usd >= 40 ? 'High Savings' : 'Quick Win'}
                   </span>
                   <span className="text-slate-400 font-mono text-[11px]">
-                    {rec.kwh_saved} kWh saved
+                    {rec.kwh_saved} kWh avoided
                   </span>
                 </div>
 
@@ -92,7 +98,7 @@ export default function RecommendationCards({
               <div className="pt-3 border-t border-slate-800/80 flex items-center justify-between">
                 <div>
                   <div className="text-xs font-semibold text-emerald-400">
-                    Save ~${rec.cost_saved_usd}
+                    Save ~${Number(rec.cost_saved_usd).toFixed(2)}
                   </div>
                   <div className="text-[11px] text-slate-500">
                     Cuts {rec.co2_saved_kg} kg CO₂
